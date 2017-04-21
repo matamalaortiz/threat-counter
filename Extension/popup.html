@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="tachyons.min.css">
+    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+    <title>TRHEAT</title>
+</head>
+
+<body>
+  <main>
+    <p class="f4">Threat Counter</p>
+
+    <form id="form">
+        <div class="form-row">
+            <label for="date">date</label><br>
+            <input type="date" id="date" />
+        </div>
+        <div class="form-row">
+            <label for="username">Username of Attacker</label><br>
+            <input  id="username" />
+        </div>
+        <div class="form-row">
+            <label for="content">Content</label><br>
+            <textarea  id="content" form="form"></textarea>
+        </div>
+        <div class="form-row">
+            <label for="source">source</label><br>
+            <input id="source" />
+        </div>
+        <div>
+          <input type="submit" id="submit" value="Submit">
+        </div>
+  </main>
+        date
+        time
+        username
+        content
+        tags
+        source
+        color level 3
+        screenshot
+
+    </form>
+
+
+<script>
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBiwcCG717jnVtDlTz_FOUiJlz9Wng32pI",
+    authDomain: "threat-1186e.firebaseapp.com",
+    databaseURL: "https://threat-1186e.firebaseio.com",
+    projectId: "threat-1186e",
+    storageBucket: "threat-1186e.appspot.com",
+    messagingSenderId: "70131077767"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+
+  var date = document.getElementById('date');
+  var username = document.getElementById('username');
+  var content = document.getElementById('content');
+  var source = document.getElementById('source');
+  var submit = document.getElementById('submit');
+
+  submit.addEventListener("click", data);
+
+  function data() {
+
+    database.ref('users/anita').push({
+      date: date.value,
+      username: username.value,
+      threat: content.value,
+      source: source.value
+
+    });
+
+    console.log('ok')
+
+  }
+
+
+
+
+
+
+</script>
+</body>
+
+
+</html>
