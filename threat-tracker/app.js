@@ -36,7 +36,9 @@ app.get('/', function(req, res) {
 
 app.get('/anita', function(req, res){
 	database.ref('/users/anita').on("value", function(snapshot) {
-	  res.json(snapshot.val());
+    var threats = snapshot.val();
+    var keys = Object.keys(threats);
+    res.send(keys);
 	}, function (errorObject) {
 	  console.log("The read failed: " + errorObject.code);
 	});

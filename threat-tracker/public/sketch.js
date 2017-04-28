@@ -5,7 +5,9 @@ $(document).ready(function(){
     dataType: 'json',
     type: 'GET',
   }).done(function(result){
-    //console.log(result);
+    ks = Object.keys
+    console.log(ks);
+    console.log(result);
     //console.log(result.-KiH6JqoZ62tWMAplh0h);
     //$("#data").text(result.KiH6JqoZ62tWMAplh0h);
   }).fail(function(error){
