@@ -7,8 +7,8 @@ app.engine('html', mustache());
 app.set('view engine', 'mustache');
 app.set('views', __dirname);
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/assets'));
 
-app.use('/assets', express.static('assets'));
 
 /*-----------
 //Database Info
@@ -35,10 +35,8 @@ app.get('/', function(req, res) {
 });
 
 app.get('/anita', function(req, res){
-	database.ref('/users/anita').on("value", function(snapshot) {
-    var threats = snapshot.val();
-    var keys = Object.keys(threats);
-    res.send(keys);
+	database.ref('/users/anita').once("value", function(snapshot) {
+	  res.json(snapshot.val());
 	}, function (errorObject) {
 	  console.log("The read failed: " + errorObject.code);
 	});

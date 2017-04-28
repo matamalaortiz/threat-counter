@@ -1,0 +1,13 @@
+.container{
+  width: .9;
+}
+.col-md-4{
+  border: 3px solid #eeeeee;
+  margin: 5px;
+}
+body{
+  font-family: 'Alegreya Sans', sans-serif;
+}
+.myheader{
+  margin: 10px;
+}
