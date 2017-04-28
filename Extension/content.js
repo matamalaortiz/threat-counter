@@ -1,24 +1,44 @@
-console.log('socket server content script version 2');
-console.log('Be sure to read the README file to get this extension working');
 
-// This script loads after socket.io.js, so the "io" global
-// variable below will already be present
+console.log('here');
 
-var port = 8080;
-var socket = io.connect('http://45.55.197.61:' + port);
+var date = document.getElementById('date');
+var username = document.getElementById('username');
+var content = document.getElementById('content');
+var url = document.getElementById('url');
+var category = document.getElementById('category');
+var submit = document.getElementById('submit');
 
-socket.on('connect', function() {
-  console.log('io connected successfully');
+var db_vars = {};
+
+
+chrome.tabs.query({
+    active: true,
+    lastFocusedWindow: true
+}, function(tabs) {
+    var tab = tabs[0];
+    db_vars.url, url.value = tab.url;
+    db_vars.source = tab.url.split("://")[1].split(".")[0];
+    if (db_vars.source === "twitter" ){
+      db_vars.username =  tab.url.split("://")[1].split("/")[1];
+      username.value = db_vars.username;
+      console.log(db_vars.username);
+    } else {
+      db_vars.username = username.value;
+    }
+
 });
 
-socket.on('connect_error', function() {
-  console.log('io failed to connect. Is the socket server running? Look at the README for instructions');
-});
+submit.addEventListener("click", data);
 
-// Add a listener for an event named "news"
-socket.on('news', function (data) {
-  console.log('received "news" event with data:',data);
+function data() {
 
-  // send back an event named "my other event" to the socket server
-  socket.emit('my other event', { my: 'data' });
-});
+  db_vars.date = date.value;
+  db_vars.threat = content.value;
+  db_vars.category = category.value;
+  db_vars.url = url.value;
+
+  database.ref('users/anita').push(db_vars);
+
+  console.log('ok')
+
+}

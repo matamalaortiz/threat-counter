@@ -5,13 +5,16 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="tachyons.min.css">
-    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans" rel="stylesheet">
+
+
+
     <title>TRHEAT</title>
 </head>
 
 <body>
   <main>
-    <p class="f4">Threat Counter</p>
+    <img src="logo.png" alt="Threat">
 
     <form id="form">
         <div class="form-row">
@@ -27,58 +30,30 @@
             <textarea  id="content" form="form"></textarea>
         </div>
         <div class="form-row">
-            <label for="source">source</label><br>
-            <input id="source" />
+            <label for="url">URL</label><br>
+            <input id="url" />
+        </div>
+        <div class="form-row">
+            <label for="category">category</label><br><br>
+            <select id="category">
+              <option value="joke">Joke/Insult</option>
+              <option value="Harrasment">Harrasment</option>
+              <option value="threat">Threat</option>
+              <option value="attack">Open Attack</option>
+            </select><br><br><br><br><br>
         </div>
         <div>
-          <input type="submit" id="submit" value="Submit">
+          <input type="submit" id="submit" class="f6 link dim ph3 pv2 mb2 grow white bg-black" value="Submit">
         </div>
-  </main>
-        date
-        time
-        username
-        content
-        tags
-        source
-        color level 3
-        screenshot
-
     </form>
+  </main>
+  <script src"content.js"></script>
 
-<script src"config.js"></script>
-
-<script>
-
-
-
-  var date = document.getElementById('date');
-  var username = document.getElementById('username');
-  var content = document.getElementById('content');
-  var source = document.getElementById('source');
-  var submit = document.getElementById('submit');
-
-  submit.addEventListener("click", data);
-
-  function data() {
-
-    database.ref('users/anita').push({
-      date: date.value,
-      username: username.value,
-      threat: content.value,
-      source: source.value
-
-    });
-
-    console.log('ok')
-
-  }
+  <script type="text/javascript" src="firebase.js"></script>
+  <script src="content.js"></script>
+  <script src="config.js"></script>
 
 
-
-
-
-
-</script>
 </body>
 
 
