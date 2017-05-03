@@ -7,8 +7,9 @@ $(document).ready(function(){
   }).done(function(result){
     var ks = Object.keys(result);
     var num = ks.length;
+    $('#count').html('<h1>'+num+'</h1><p>Count</p>');
     makeLatest(result[ks[num-1]]);
-    timeline(result);
+    timel(result);
     //console.log(ks);
     // for(var i = 0; i < ks.length; i++){
     //   var k = ks[i];
@@ -18,50 +19,26 @@ $(document).ready(function(){
     console.log(error);
   });
 });
-var timeline = function(result){
-  var ONE_DAY = 1000 * 60 * 60 * 24;
+var timel = function(result){
   var ks = Object.keys(result);
-  var min = new Date(result[ks[0]].date);
-  var max = new Date(result[ks[0]].date);
+  var values = [];
   for(var i = 1; i < ks.length; i++){
     var k = ks[i];
-    var b = new Date(result[k].date);
-    if(b < min) min = b;
-    if(b > max) max = b;
+    if(result[k].date == '') continue;
+    values.push(result[k]);
   }
-  var totald = (max-min)/ONE_DAY+1;
-  var datedata = [];
-  for(var i = 0; i < totald; i++) datedata[i] = 0;
-  for(var i = 0; i < ks.length; i++){
-    var k = ks[i];
-    var b = new Date(result[k].date);
-    var index = (b-min)/ONE_DAY;
-    if(!index) continue;
-    datedata[index] += 1;
-  }
-  console.log(datedata);
-  var w = $('#timeline').width();
-  var h = $('#timeline').height();
-  var barWidth = w/totald;
-  var barOffset = 10;
-  d3.select('#timeline').append('svg')
-  .attr('width', w)
-  .attr('height', h)
-  .style('background', '#dff0d8')
-  .selectAll('rect').data(datedata)
-  .enter().append('rect')
-    .style({'fill': '#3c763d', 'stroke': '#d6e9c6', 'stroke-width': '5'})
-    .attr('width', barWidth)
-    .attr('height', function (data) {
-        return data;
-    })
-    .attr('x', function (data, i) {
-        return i * (barWidth + barOffset);
-    })
-    .attr('y', function (data) {
-        return height - data;
-    });
+  var byDate = d3.nest()
+    .key(function(d) {
+       return d.date;
+     })
+    .entries(values);
+  var format = d3.time.format("%Y-%m-%d");
+  var dateCount = d3.nest()
+    .key(function(d) { return format.parse(d.key); })
+    .rollup(function(v) { return v[0].values.length; })
+    .entries(byDate);
 }
+
 var makeLatest = function(obj){
   var name = obj.username;
   var date = obj.date;
