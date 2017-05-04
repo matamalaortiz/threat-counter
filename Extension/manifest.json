@@ -13,7 +13,8 @@
 
   "permissions": [
     "activeTab",
-    "tabs"
+    "tabs",
+    "storage"
   ],
 
   "content_scripts": [
@@ -21,7 +22,7 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": ["firebase.js","config.js","content.js","style.css"]
+      "js": ["firebase.js","config.js","popup.js","content.js","style.css"]
     }
 
   ]
