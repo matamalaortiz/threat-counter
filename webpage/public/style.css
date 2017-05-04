@@ -1,0 +1,66 @@
+.container {
+    width: .9;
+}
+
+.col-md-4 {
+    border: 3px solid #eeeeee;
+    margin: 5px;
+}
+
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.myheader {
+    margin: 10px;
+}
+
+#count p {
+  text-align: center;
+  font-size: 80px;
+  color: #e74c3c;
+}
+#count h2 {
+  text-align: left;
+  color: #000;
+}
+
+#timeline path {
+    stroke: steelblue;
+    stroke-width: 1;
+    fill: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#pie {
+    align-items: center;
+}
+
+#pie svg {
+    display: block;
+    margin: auto;
+}
+#level svg{
+  display: block;
+  margin: auto;
+}
+
+#plt .bar {
+    fill: #5f89ad;
+}
+
+#plt .axis {
+    font-size: 13px;
+}
+
+#plt .axis path, #plt .axis line {
+    fill: none;
+    display: none;
+}
+
+#plt .label {
+    font-size: 13px;
+}
