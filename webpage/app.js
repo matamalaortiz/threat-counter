@@ -34,43 +34,17 @@ app.get('/', function(req, res) {
 	res.render("index.html", hello_data);
 });
 
-app.get('/anita', function(req, res){
-<<<<<<< HEAD
-	database.ref('/users/anita').on("value", function(snapshot) {
-    res.json(snapshot.val());
-=======
-	database.ref('/users/anita').once("value", function(snapshot) {
+app.get("/firebase/get/:username", function(req, res){
+  var userInfo = req.params.username;
+  database.ref('/users/'+userInfo).once("value", function(snapshot) {
 	  res.json(snapshot.val());
->>>>>>> c24e928a9c7480cf20efcc792394b4d88aef215e
 	}, function (errorObject) {
 	  console.log("The read failed: " + errorObject.code);
 	});
 });
 
-app.post('/', function(req, res) {
-	res.render("index.html", hello_data);
-});
-
-app.get("/firebase/get/:type", function(req, res){
-	// var userInfo = req.params.name.split(',');
-	// res.header('Access-Control-Allow-Origin', "*");
-	// var requrl = 'http://api.population.io:80/1.0/wp-rank/'+userInfo[0]+'/'+ userInfo[2]+'/' + userInfo[1] + '/today/';
-	// Request(requrl, function (error, response, body) {
-	// 	if (!error && response.statusCode == 200) {
-	// 		//console.log(body);
-	// 		var theData = JSON.parse(body).rank;
-	// 		res.json(theData);
-	// 	}
-	// });
-  var theData = {
-    threat : 38
-  };
-  res.json(theData);
-});
-
 var server = app.listen(8080, function() {
 	var host = server.address().address;
 	var port = server.address().port;
-
 	console.log("Simple Server Started at http://%s:%s", host, port);
 });

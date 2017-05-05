@@ -22,4 +22,4 @@ open your web browser and visit http://localhost:8080/
 ### Credit
 This project was created as a part of the Spring 2017 Development in the Public Interest course at the Interactive Telecommunications Program within NYU's Tisch School of the Arts.
 
-Created by Alejandro, Ada, Pilar, & Tianlei
+Created by Alejandro, Ada, Alpacafluff, & Tianlei

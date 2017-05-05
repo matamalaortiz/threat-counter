@@ -14,7 +14,9 @@ body {
 .myheader {
     margin: 10px;
 }
-
+#banner{
+  width: 1000px;
+}
 #count p {
   text-align: center;
   font-size: 80px;
@@ -63,4 +65,17 @@ a {
 
 #plt .label {
     font-size: 13px;
+}
+
+#load div{
+  border: 3px solid #eeeeee;
+  margin: 5px;
+  padding: 10px;
+}
+#load div .l{
+  width: 50px;
+  float: right;
+}
+#load div .content{
+  font-size: 18px;
 }

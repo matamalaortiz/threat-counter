@@ -1,7 +1,8 @@
 $(document).ready(function(){
+  var username = 'anita';
   $('#banner').width($(window).width()*0.7);
   $.ajax({
-    url: '/anita',
+    url: '/firebase/get/'+username,
     dataType: 'json',
     type: 'GET',
   }).done(function(result){
@@ -138,7 +139,7 @@ var level = function(result){
   var w = r*2 + 20;
   var colorCode = {
     "Moderate": "#27ae60",
-    "Substantial": "#f1c40f",
+    "Substancial": "#f1c40f",
     "Severe": "#e74c3c"
   }
   var vis = d3.select("#level")
@@ -174,8 +175,8 @@ var level = function(result){
         })
         .attr("text-anchor", "middle")                          //center the text on it's origin
         .text(function(d, i) {
-          if(set[i].value > 2) return set[i].key;
-          else return ''});
+          return set[i].key;
+        });
     var hh = $('#plt').height();
     $('#level').height(hh);
 }
@@ -240,8 +241,8 @@ var piei = function(result){
         })
         .attr("text-anchor", "middle")                          //center the text on it's origin
         .text(function(d, i) {
-          if(set[i].value > 2) return set[i].key;
-          else return ''});
+          return set[i].key;
+        });
     var hh = $('#plt').height();
     $('#pie').height(hh);
 }
