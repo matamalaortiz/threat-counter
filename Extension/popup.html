@@ -23,30 +23,21 @@
             <label for="username">Username of Attacker</label><br>
             <input  id="username" required="required"/>
         </div>
-        <div class="form-row">
-            <label for="content">Content</label><br>
-            <textarea  id="content" form="form" required="required"></textarea>
-        </div>
+
         <div class="form-row">
             <label for="url">URL</label><br>
             <input id="url" required />
         </div>
-        <!-- <div class="form-row">
+        <div class="form-row">
             <label for="level">Threat Level</label><br>
             <select id="level" required="required">
               <option value="Moderate">Moderate</option>
               <option value="Substancial">Substancial</option>
               <option value="Severe">Severe</option>
             </select><br><br><br><br><br>
-        </div> -->
-        <div class="form-row">
-            </label>
-            <p><br/>
-            <input type="radio" id="level" name="rr" value="Moderate" />
-            <label for="level"><span></span>Radio Button 1</label>
         </div>
         <div class="form-row">
-            <label for="category">Category</label><br><br>
+            <label for="category">Category</label><br>
             <select id="category" required="required">
               <option value="joke">Joke/Insult</option>
               <option value="Harrasment">Harrasment</option>
@@ -54,7 +45,11 @@
               <option value="attack">Open Attack</option>
             </select><br><br><br><br><br>
         </div>
-        <div>
+        <div class="form-row">
+            <label for="content">Content</label><br>
+            <textarea  id="content" form="form" required="required"></textarea>
+        </div>
+        <div class="form-row">
           <input type="submit" id="submit" class="f6 link dim ph3 pv2 mb2 grow white bg-black" value="Submit">
         </div>
     </form>

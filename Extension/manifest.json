@@ -17,6 +17,10 @@
     "storage"
   ],
 
+  "icons":{
+    "128":"icon128.png"
+  },
+
   "content_scripts": [
     {
       "matches": [

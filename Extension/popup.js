@@ -21,21 +21,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
   }
 
-
   chrome.tabs.query({
       active: true,
       lastFocusedWindow: true
   }, function(tabs) {
       var tab = tabs[0];
       db_vars.url, url.value = tab.url;
-      db_vars.source = tab.url.split("://")[1].split(".")[0];
+      var site = new URL(tab.url);
+      var a = site.host.split('.');
+      if(a.length == 3){
+        db_vars.source = a[1];
+      }else{
+        db_vars.source = a[0];
+      }
+
+
       if (db_vars.source === "twitter" ){
+        console.log(db_vars.source);
         db_vars.username =  tab.url.split("://")[1].split("/")[1];
         username.value = db_vars.username;
         console.log(db_vars.username);
-      } else {
-        db_vars.username = username.value;
       }
+
+
+
 
   });
 
@@ -76,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
     db_vars.category = category.value;
     db_vars.level = level.value;
     db_vars.url = url.value;
+    db_vars.username = username.value;
 
     database.ref('users/anita').push(db_vars);
 
