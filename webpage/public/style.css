@@ -11,6 +11,10 @@ body {
     font-family: 'Alegreya Sans', sans-serif;
 }
 
+#timeline text {
+  font-size: 9px;
+}
+
 .myheader {
     margin: 10px;
 }
