@@ -23,7 +23,7 @@ $(document).ready(function(){
 var plt = function(result){
   var ks = Object.keys(result);
   var values = [];
-  for(var i = 1; i < ks.length; i++){
+  for(var i = 0; i < ks.length; i++){
     var k = ks[i];
     values.push(result[k]);
   }
@@ -118,7 +118,7 @@ var plt = function(result){
 var level = function(result){
   var ks = Object.keys(result);
   var values = [];
-  for(var i = 1; i < ks.length; i++){
+  for(var i = 0; i < ks.length; i++){
     var k = ks[i];
     if(result[k].level) values.push(result[k]);
   }
@@ -187,7 +187,7 @@ var level = function(result){
 var piei = function(result){
   var ks = Object.keys(result);
   var values = [];
-  for(var i = 1; i < ks.length; i++){
+  for(var i = 0; i < ks.length; i++){
     var k = ks[i];
     values.push(result[k]);
   }
@@ -241,7 +241,7 @@ var piei = function(result){
         })
         .attr("text-anchor", "middle")                          //center the text on it's origin
         .text(function(d, i) {
-          return set[i].key;
+          return set[i].key.charAt(0).toUpperCase() + set[i].key.slice(1);
         });
     var hh = $('#plt').height();
     $('#pie').height(hh);
@@ -253,7 +253,7 @@ var piei = function(result){
 var timel = function(result){
   var ks = Object.keys(result);
   var values = [];
-  for(var i = 1; i < ks.length; i++){
+  for(var i = 0; i < ks.length; i++){
     var k = ks[i];
     if(result[k].date == '') continue;
     values.push(result[k]);

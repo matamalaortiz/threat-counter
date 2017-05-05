@@ -16,7 +16,9 @@ $(document).ready(function(){
     for(var i = 1; i < ks.length; i++){
       var k = ks[i];
       var obj = result[k];
-      largediv.append('<div><img class="l" src='+level[obj.level]+'><h4>@'+obj.username+' <small>'+obj.date+'</small></h4><p>'+obj.category+' | <a href='+obj.url+'>'+obj.source+'</p></a><p class="content"style="background-color:#eeeeee">'+obj.threat+'</p></div>');
+      var le = obj.category;
+      var fl = le.charAt(0).toUpperCase() + le.slice(1)
+      largediv.append('<div><img class="s" src='+obj.screenshot+'><img class="l" src='+level[obj.level]+'><h4>@'+obj.username+' <small>'+obj.date+'</small></h4><p>'+fl+' | <a href='+obj.url+'>'+obj.source+'</p></a><p class="content"style="background-color:#eeeeee">'+obj.threat+'</p></div>');
     }
   }).fail(function(error){
     console.log(error);

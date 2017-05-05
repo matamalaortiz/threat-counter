@@ -14,8 +14,9 @@ body {
 .myheader {
     margin: 10px;
 }
-#banner{
-  width: 1000px;
+img#banner{
+  width: 60% !important;
+  height: auto;
 }
 #count p {
   text-align: center;
@@ -78,4 +79,11 @@ a {
 }
 #load div .content{
   font-size: 18px;
+}
+#load div .s{
+  width: 10%;
+  height: auto;
+}
+#load div .s:hover{
+  width: 80%;
 }
